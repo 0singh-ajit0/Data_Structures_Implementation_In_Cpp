@@ -11,7 +11,7 @@ private:
 public:
 	bool push(int);
 	int pop();
-	int printTop();
+	int returnTop();
 	bool isEmpty();
 	bool printStack();
 };

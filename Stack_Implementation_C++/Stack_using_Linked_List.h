@@ -9,12 +9,11 @@ struct Node
 class Stack
 {
 private:
-	int top = -1;
-	Node *head = NULL;
+	Node *top = NULL;
 	Node *createNode();
 public:
 	bool push(int);
 	int pop();
-	int printTop();
+	Node *returnTop();
 	bool printStack();
 };

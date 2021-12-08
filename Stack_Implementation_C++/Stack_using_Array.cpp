@@ -19,7 +19,7 @@ int Stack :: pop()
 	return arr[top--];
 }
 
-int Stack :: printTop()
+int Stack :: returnTop()
 {
 	return top;
 }
