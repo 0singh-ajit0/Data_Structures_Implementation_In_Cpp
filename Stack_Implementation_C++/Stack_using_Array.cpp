@@ -60,7 +60,7 @@ void Stack :: doubleArraySize()
 
 void Stack :: copyArr(int *oldArr, int *newArr)
 {
-	for (int i = 0; i < currentSize; i++)
+	for (int i = 0; i < currentSize / 2; i++)
 		newArr[i] = oldArr[i];
 }
 
