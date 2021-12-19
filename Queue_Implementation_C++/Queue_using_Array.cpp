@@ -2,32 +2,44 @@
 
 bool Queue :: enqueue(int data)
 {
-	if ( rear == currentSize - 1 )
-		doubleArraySize();
-	if ( front == rear == -1 )
+	if ( (rear + 1) % maxSize == front )
 	{
-		front = rear = 0;
-		arr[rear] = data;
-		return true;
+		if ( !doubleArraySize() )
+			return false;
 	}
-	arr[++rear] = data;
+	if ( front == rear == -1 )
+		front = rear = 0;
+	else
+		rear = (rear + 1) % maxSize;
+
+	arr[rear] = data;
+	currentSize++;
 	return true;
 }
 
-int Queue :: pop()
+bool Queue :: dequeue()
 {
-	if ( front == currentSize - 1 )
-		return -1;
-	return arr[front++];
+	if ( front == -1 )
+		return false;
+	else if ( front == rear )
+		front = rear = -1;
+	else
+		front = (front + 1) % maxSize;
+	return true;
 }
 
-
-void Queue :: doubleArraySize()
+bool Queue :: doubleArraySize()
 {
 	int *newArr;
 
-	currentSize *= 2;
-	newArr = new int[currentSize];
+	maxSize *= 2;
+	newArr = new int[maxSize];
+	if (newArr == NULL)
+	{
+		cout << "\tStack Overflow\n";
+		maxSize /= 2;
+		return false;
+	}
 	copyArr(arr, newArr);
 	delete[] arr;
 	arr = newArr;
@@ -35,7 +47,7 @@ void Queue :: doubleArraySize()
 
 void Queue :: copyArr(int *arr, int *newArr)
 {
-	for (int i = 0; i < currentSize / 2; i++)
+	for (int i = 0; i < maxSize / 2; i++)
 		newArr[i] = arr[i];
 }
 
@@ -55,10 +67,11 @@ bool Queue :: isEmpty()
 
 bool Queue :: printQueue()
 {
+	if (isEmpty())
+		return false;
 	std::cout << "FRONT -> ";
 	for (int i = front; i <= rear; i++)
-	{
 		std::cout << arr[i] << std::endl;
-	}
+	return true;
 }
 

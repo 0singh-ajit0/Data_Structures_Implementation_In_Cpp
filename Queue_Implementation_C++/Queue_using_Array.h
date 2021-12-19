@@ -5,13 +5,13 @@ class Queue
 private:
 	int front = -1;
 	int rear = -1;
-	int currentSize = 4;
-	int *arr = new int[currentSize];
-	void doubleArraySize();
+	int maxSize = 4;
+	int *arr = new int[maxSize];
+	bool doubleArraySize();
 	void copyArr(int*, int*);
 public:
 	bool enqueue(int);
-	int pop();
+	bool dequeue();
 	int returnFront();
 	bool isEmpty();
 	bool printQueue();
