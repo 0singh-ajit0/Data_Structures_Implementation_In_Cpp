@@ -69,9 +69,10 @@ bool Queue :: printQueue()
 {
 	if (isEmpty())
 		return false;
-	std::cout << "FRONT -> ";
+	std::cout << "FRONT |\n\t  v\n";
 	for (int i = front; i <= rear; i++)
-		std::cout << arr[i] << std::endl;
+		std::cout << arr[i] << " ";
+	std::cout << std::endl;
 	return true;
 }
 
