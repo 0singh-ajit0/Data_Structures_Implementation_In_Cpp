@@ -57,21 +57,3 @@ bool BST :: search(int data)
 {
 	return _search(_root, data);
 }
-
-
-int main()
-{
-	BST bstree;
-
-	bstree.insert(23);
-	bstree.insert(12);
-	bstree.insert(-2);
-	bstree.insert(4);
-
-	if (bstree.search(230))
-		std::cout << "Number is present in the tree\n";
-	else
-		std::cout << "Number is not present in the tree\n";
-
-	return 0;
-}
