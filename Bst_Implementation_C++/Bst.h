@@ -20,4 +20,5 @@ private:
 public:
 	bool insert(int);
 	bool search(int);
+	BstNode *returnRoot();
 };

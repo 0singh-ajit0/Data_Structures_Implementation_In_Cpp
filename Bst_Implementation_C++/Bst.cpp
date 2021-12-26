@@ -57,3 +57,9 @@ bool BST :: search(int data)
 {
 	return _search(_root, data);
 }
+
+BstNode *BST :: returnRoot()
+{
+	return _root;
+}
+
