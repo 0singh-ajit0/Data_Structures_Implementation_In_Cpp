@@ -15,8 +15,8 @@ private:
 
 	// Functions
 	BstNode *_createNode(int);
-	BstNode *_insert(int, BstNode *);
-	bool _search(int, BstNode *);
+	BstNode *_insert(BstNode *, int);
+	bool _search(BstNode *, int);
 public:
 	bool insert(int);
 	bool search(int);
